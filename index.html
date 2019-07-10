@@ -1,0 +1,67 @@
+<html><head>
+    <meta charset="utf-8">
+    <title>秋义明</title>
+    <link href="favicon.ico" rel="shortcut icon">
+    <style>
+    body{
+    background-image: url('./image/i.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin: 0;
+    }
+    h1{
+        position: fixed;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        transform:translateY(-50%);
+        font-size: 40px;
+        color:#ed5400;
+        padding: 0 20px;
+        }
+    h1 span{
+        font-size:20px;
+    }
+        .love-you {
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+            .link {
+                font-size: 12px;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+            }    
+    </style>
+    </head>
+    <body data-gr-c-s-loaded="true">
+    <h1 id="h1">
+    <div class="love-you">时光如此漫长</div>
+    <canvas width="1021" height="978"></canvas>
+    
+    <script>
+        window.onload=function starttime(){
+            time(h1,'2019/07/04 20:00:00');     // 在一起的时间
+            ptimer = setTimeout(starttime,1000); // 添加计时器
+        }
+    
+        function time(obj,futimg){
+            var nowtime = new Date().getTime(); // 现在时间转换为时间戳
+            var futruetime =  new Date(futimg).getTime(); // 未来时间转换为时间戳
+            var msec = nowtime-futruetime; // 毫秒 未来时间-现在时间
+            var time =  parseInt(msec/1000);  // 毫秒/1000
+            var day = parseInt(time/86400); // 天  24*60*60*1000
+            var hour = parseInt(time/3600)-24*day;    // 小时 60*60 总小时数-过去的小时数=现在的小时数
+            var minute = parseInt(time%3600/60); // 分 -(day*24) 以60秒为一整份 取余 剩下秒数 秒数/60 就是分钟数
+            var second = parseInt(time%60);  // 以60秒为一整份 取余 剩下秒数
+            obj.innerHTML= "秋义明 范旭东<br>在一起：<br>"+ day +"天"+ hour +"小时"+minute+"分"+second+"秒"+"了<br><span>情不知所起 <br>一往而深 <br>爱你 <br>是我人生最幸福的事</span>"
+
+            return true;
+        }
+    </script>
+    
+    
+    </body></html>
